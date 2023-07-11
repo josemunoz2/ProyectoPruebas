@@ -8,7 +8,7 @@ PRECIOS = {
     'D': 3500
 }
 
-# Estado inicial de los departamentos (todos disponibles)
+# departamentos "todos disponibles"
 departamentos = [['A'] * 4, ['B'] * 4, ['C'] * 4, ['D'] * 4, ['A'] * 4,
                  ['B'] * 4, ['C'] * 4, ['D'] * 4, ['A'] * 4, ['B'] * 4]
 
@@ -29,12 +29,12 @@ def comprar_departamento():
     if departamento == 'X':
         print("El departamento seleccionado no está disponible")
     else:
-        run = input("Ingrese el RUN del comprador (sin guion ni puntos): ")
+        rut = input("Ingrese el RUT del comprador (sin guion ni puntos): ")
 
-        if run in compradores:
-            print("El RUN ingresado ya ha comprado un departamento")
+        if rut in compradores:
+            print("El RUT ingresado ya ha comprado un departamento")
         else:
-            compradores[run] = departamento
+            compradores[rut] = departamento
             departamentos[piso_index][tipo_index] = 'X'
             print("Operación realizada correctamente.")
 
@@ -48,9 +48,9 @@ def mostrar_departamentos_disponibles():
 
 def ver_listado_compradores():
     if compradores:
-        print("Listado de compradores por RUN:")
-        for run in sorted(compradores.keys()):
-            print(f"RUN: {run}, Departamento: {compradores[run]}")
+        print("Listado de compradores por RUT:")
+        for rut in sorted(compradores.keys()):
+            print(f"RUT: {rut}, Departamento: {compradores[rut]}")
     else:
         print("No se ha registrado ninguna compra")
 
